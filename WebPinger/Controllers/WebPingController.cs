@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -31,6 +32,9 @@ namespace WebPinger.Controllers
                 NetflixHttp = netflixRequest.StatusCode,
                 StofaHttp = stofaRequest.StatusCode
             };
+
+            if (!googleRequest.IsSuccessStatusCode || !netflixRequest.IsSuccessStatusCode || !stofaRequest.IsSuccessStatusCode)
+                return StatusCode(StatusCodes.Status500InternalServerError, results);
 
             return Ok(results);
         }
