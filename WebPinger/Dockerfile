@@ -7,10 +7,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["WebPinger/WebPinger.csproj", "WebPinger/"]
-RUN dotnet restore "WebPinger/WebPinger.csproj"
+COPY "WebPinger.csproj" .
+RUN dotnet restore "WebPinger.csproj"
 COPY . .
-WORKDIR "/src/WebPinger"
+WORKDIR "/src"
 RUN dotnet build "WebPinger.csproj" -c Release -o /app/build
 
 FROM build AS publish

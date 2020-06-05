@@ -31,7 +31,7 @@
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/web-pinger/check-internet-connection",
       "publishAllPorts": true,
-      "useSSL": true
+      "useSSL": false
     }
   }
 }

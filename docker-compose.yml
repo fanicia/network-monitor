@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  networkmonitor:
+    image: networkmonitor
+    build:
+      context: .
+      dockerfile: Dockerfile
+  webpinger:
+    image: webpinger
+    build:
+      context: .
+      dockerfile: WebPinger/Dockerfile
+    ports:
+      - 80
+      - 443
