@@ -23,4 +23,4 @@ scrape_configs:
     scheme: 'http'
     metrics_path: '/web-pinger/check-internet-connection'
     static_configs:
-      - targets: ['webpinger:5000']
+      - targets: ['webpinger:80']
