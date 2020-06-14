@@ -6,11 +6,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - 9090:9090
   webpinger:
     image: webpinger
     build:
       context: .
       dockerfile: WebPinger/Dockerfile
     ports:
-      - 80
+      - 5000:80
       - 443

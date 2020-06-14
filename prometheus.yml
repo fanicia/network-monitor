@@ -19,8 +19,8 @@ scrape_configs:
       - targets: ['localhost:9090']
 
   - job_name: 'web-pinger'
-    scape_interval: 5s
-    scheme: 'https'
+    scrape_interval: 5s
+    scheme: 'http'
     metrics_path: '/web-pinger/check-internet-connection'
     static_configs:
-      - targets: ['localhost:32770']
+      - targets: ['webpinger:5000']
